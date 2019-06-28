@@ -38,7 +38,7 @@ Rubotnik.route :message do
      # (e.g. quick_replies: ['Yes', 'No'], payloads "YES" and "NO" are inferred)
    }
    bind 'Non', to: :start_conversation, reply_with: {
-    text: "Les panneaux solaires peuvent réduire tes factures d'électricité => sunshare.com",
+    text: "Les panneaux solaires peuvent réduire tes factures d'électricité => https://www/sunshare.fr",
     # second item in nested array will be the contents of message.quick_reply,
     # once the user makes a selection. Quick reply text in ALL CAPS will be
     # used as default values of payloads if you pass strings instead of arrays
