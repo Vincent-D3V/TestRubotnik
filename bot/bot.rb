@@ -64,7 +64,7 @@ Rubotnik.route :message do
 
    # Invoked if none of the commands recognized. Has to come last, after all binds
    default do
-     say "Sorry I did not get it"
+     say "Pour me parler, saluez moi avec un 'bonjour' ! "
    end
 end
 
