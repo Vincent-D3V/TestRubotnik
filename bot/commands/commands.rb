@@ -27,12 +27,23 @@ module Commands
   def appear_nice
     message.typing_on
     case message.text
-    when 'Oui' then say "Utilise tes produits électro ménagers en pleine journée au soleil ! "
-    when 'Non' then say "Et bah te faire foutre !! "
+    when 'oui' then say "Utilise tes appareils électro ménagers en pleine journée au soleil! Quels produits électro-ménagers possède-tu ?"
+      next_command :appareils
+    when 'non' then say "Et bah te faire foutre !! "
     else
       say "It shall pass"
     end
     message.typing_off
     stop_thread # future messages from user will be handled from top-level bindings
   end
-end
+
+  def appareils
+    message.typing_on
+    case message.text
+    when 'four' then say 'Okay, pour le four tu dois bla bla bla'
+      next_command :appear_nice
+    when 'machine à laver' then say 'Pour ta machine, si tu as des panneaux il faut mieux la programmer le midi quand le soleil est à son pic !'
+      next_command :appear_nice
+    when 'lave-linge' then say 'Pour ton lave-linge, si tu as des panneaux il faut mieux la programmer le midi quand le soleil est à son pic !'
+      next_command :appear_nice
+end 
