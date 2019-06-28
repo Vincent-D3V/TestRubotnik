@@ -9,12 +9,18 @@ module Commands
     # you can also react on the text itself
     message.typing_on
     case message.quick_reply
-    when 'OK'
-      say "Super, tu as donc une bonne utilsiation des panneaux solaires"
-      stop_thread
-    when 'NOT_OK'
-      say "Okay, pas de problème ! Veux tu quelques conseils pour une bonne utilisation ?"
-      next_command :appear_nice
+    when 'TV'
+      say "Bien sur on ne va te demander de ne pas regarder la télévision seulement à midi mais la mettre seulement en veille te permettrait d'éviter une dépense énergétique inutile"
+      next_command :start_conversation
+    when 'LAVE_LINGE'
+      say "Savais-tu que la plupart des lave-linges possèdent un mode éco qui te permet de moins consommer. Remplis correctement tes machines et nettoie régulièrement le filtre"
+      next_command :start_conversation
+    when 'LAVE_VAISSELLE'
+      say "Essaie de brancher sur l'arrivée d'eau froide. Charge totalement tes machines. Fais au maximum de vaisselles à la main."
+      next_command :start_conversation
+    when 'FRIGO'
+      say "Place ton frigidaire loin des sources de chauleurs. Dépoussière régulièrement les grilles arrières. Laisse aussi de l'espace entre le mur et l'arrière de ton frigidaire"
+      next_command :start_conversation
     else
       say "🤖"
       # it's always a good idea to have an else, quick replies don't

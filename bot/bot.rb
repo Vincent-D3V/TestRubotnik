@@ -20,7 +20,7 @@ LOCATION_PROMPT = UI::QuickReplies.location
 Rubotnik.route :message do
   # Will work for all variations of these three greetings
   bind 'hi', 'hello', 'bonjour' do
-    say 'Bonjour, as tu des panneaux solaires ?'
+    say 'Bonjour je suis machin machin mùa hun veux tu en savoir plus sur les obnnes prartiques ? '
   end
 
   # Start a thread (and provide an opening message with optional quick replies).
@@ -29,14 +29,21 @@ Rubotnik.route :message do
   # commands/commands.rb already has this start_conversation method
   # defined as an example.
 
-  bind 'Oui', 'ai', all: true, to: :start_conversation, reply_with: {
-     text: "Connais-tu Sunshare",
-     quick_replies: [['Oui', 'OK'], ['Non', 'NOT_OK']]
+  bind 'Oui', to: :start_conversation, reply_with: {
+     text: "Possédez-vous un des appareils suivants ?",
+     quick_replies: [['TV', 'TV'], ['Lave-linge', 'LAVE_LINGE'], ['Lave-vaisselle', 'LAVE_VAISSELLE'], ['Frigo', 'FRIGO']]
      # second item in nested array will be the contents of message.quick_reply,
      # once the user makes a selection. Quick reply text in ALL CAPS will be
      # used as default values of payloads if you pass strings instead of arrays
      # (e.g. quick_replies: ['Yes', 'No'], payloads "YES" and "NO" are inferred)
    }
+   bind 'Non', to: :start_conversation, reply_with: {
+    text: "Les panneaux solaires peuvent réduire tes factures d'électricité => sunshare.com",
+    # second item in nested array will be the contents of message.quick_reply,
+    # once the user makes a selection. Quick reply text in ALL CAPS will be
+    # used as default values of payloads if you pass strings instead of arrays
+    # (e.g. quick_replies: ['Yes', 'No'], payloads "YES" and "NO" are inferred)
+  }
 
    # Use 'all' flag if you want to trigger a command only if all words
    # are present in a message (will trigger with each of them by default)
