@@ -12,13 +12,14 @@ module Commands
   end
 
   def handle_user_location
-    coords = message.attachments.first['payload']
+    coords = message.attachments.first['payload']['coordinates']
     lat = coords['lat']
     long = coords['long']
     message.typing_on
-    parsed = get_parsed_response(API_URL)
+    parsed = get_parsed_response(API_URL, "#{lat},#{long}")
     address = extract_full_address(parsed)
-    say "Looks like you're at #{address}"
+    say "Coordinates of your location: Latitude #{lat}, Longitude #{long}. " \
+        "Looks like you're at #{address}"
     message.typing_off
   end
 
