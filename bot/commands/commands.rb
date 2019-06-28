@@ -47,6 +47,4 @@ module Commands
     when 'lave-linge' then say 'Pour ton lave-linge, si tu as des panneaux il faut mieux la programmer le midi quand le soleil est à son pic !'
       next_command :appear_nice
     end
-    message.typing_off
-    stop_thread
 end 
