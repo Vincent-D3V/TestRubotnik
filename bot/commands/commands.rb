@@ -10,10 +10,10 @@ module Commands
     message.typing_on
     case message.quick_reply
     when 'OK'
-      say "Glad you're doing well!"
+      say "Super, tu as donc une bonne utilsiation des panneaux solaires"
       stop_thread
     when 'NOT_OK'
-      say "Too bad. What happened?"
+      say "Okay, pas de problème ! Veux tu quelques conseils pour une bonne utilisation ?"
       next_command :appear_nice
     else
       say "🤖"
@@ -27,8 +27,8 @@ module Commands
   def appear_nice
     message.typing_on
     case message.text
-    when /job/i then say "We've all been there"
-    when /family/i then say "That's just life"
+    when 'Oui' then say "Utilise tes produits électro ménagers en pleine journée au soleil ! "
+    when 'Non' then say "Et bah te faire foutre !! "
     else
       say "It shall pass"
     end
