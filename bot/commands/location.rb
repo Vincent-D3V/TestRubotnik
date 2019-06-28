@@ -1,5 +1,5 @@
 module Commands
-  API_URL = 'https://api.openweathermap.org/data/2.5/weather?lat='.freeze
+  API_URL = 'https://api.openweathermap.org/data/2.5/weather?q=?Nantes,FR'.freeze
 
   # Lookup based on location data from user's device
   def lookup_location
@@ -16,7 +16,7 @@ module Commands
     lat = coords['lat']
     long = coords['long']
     message.typing_on
-    parsed = get_parsed_response(API_URL, "#{lat}§lon=#{long}")
+    parsed = get_parsed_response(API_URL)
     address = extract_full_address(parsed)
     say "Coordinates of your location: Latitude #{lat}, Longitude #{long}. " \
         "Looks like you're at #{address}"
@@ -24,8 +24,8 @@ module Commands
   end
 
   # Talk to API
-  def get_parsed_response(url, query)
-    response = HTTParty.get(URI.parse(URI.escape(url+ query + '§andappid=526286c33895674959f3b36eb9b60f9b')) )
+  def get_parsed_response(url)
+    response = HTTParty.get(URI.parse(URI.escape( url )) + '§andappid=526286c33895674959f3b36eb9b60f9b' )
     parsed = JSON.parse(response.body)
     parsed['status'] != 'ZERO_RESULTS' ? parsed : nil
   end
