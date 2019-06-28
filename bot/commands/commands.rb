@@ -37,18 +37,4 @@ module Commands
     stop_thread # future messages from user will be handled from top-level bindings
   end
 
-  def appareils
-    message.typing_on
-    case message.text
-    when 'four' then say 'Okay, pour le four tu dois bla bla bla'
-      next_command :appear_nice
-    when 'machine à laver' then say 'Pour ta machine, si tu as des panneaux il faut mieux la programmer le midi quand le soleil est à son pic !'
-      next_command :appear_nice
-    when 'lave-linge' then say 'Pour ton lave-linge, si tu as des panneaux il faut mieux la programmer le midi quand le soleil est à son pic !'
-      next_command :appear_nice
-    else
-      say "it shall bla bla "
-    end
-    message.typing_off
-    stop_thread
 end 
