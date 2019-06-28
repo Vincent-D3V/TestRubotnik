@@ -25,7 +25,7 @@ module Commands
 
   # Talk to API
   def get_parsed_response(url, query)
-    response = HTTParty.get(url + query + '§andappid=526286c33895674959f3b36eb9b60f9b')
+    response = HTTParty.get(URI.escape(url) + query + '§andappid=526286c33895674959f3b36eb9b60f9b')
     parsed = JSON.parse(response.body)
     parsed['status'] != 'ZERO_RESULTS' ? parsed : nil
   end
