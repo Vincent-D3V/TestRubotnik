@@ -1,5 +1,5 @@
 module Commands
-  API_URL = 'https://api.openweathermap.org/data/2.5/weather?lat=long=§andappid=526286c33895674959f3b36eb9b60f9b'
+  API_URL = 'https://api.openweathermap.org/data/2.5/weather?q=Nantes,FR§andappid=526286c33895674959f3b36eb9b60f9b'
 
   # Lookup based on location data from user's device
   def lookup_location
@@ -12,14 +12,13 @@ module Commands
   end
 
   def handle_user_location
-    coords = message.attachments.first['payload']['coordinates']
+    coords = message.attachments.first['payload']
     lat = coords['lat']
     long = coords['long']
     message.typing_on
-    parsed = get_parsed_response(API_URL, "#{lat}","#{long}")
+    parsed = get_parsed_response(API_URL)
     address = extract_full_address(parsed)
-    say "Coordinates of your location: Latitude #{lat}, Longitude #{long}. " \
-        "Looks like you're at #{address}"
+    say "Looks like you're at #{address}"
     message.typing_off
   end
 

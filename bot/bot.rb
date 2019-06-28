@@ -53,8 +53,8 @@ Rubotnik.route :message do
    end
 
    # Look for example of an API call with HTTParty in commands/location.rb
-   bind 'where', 'am', 'I', all: true, to: :lookup_location, reply_with: {
-      text: 'Let me know your location',
+   bind 'Où', 'suis', 'je', all: true, to: :lookup_location, reply_with: {
+      text: 'Donnez moi votre position',
       quick_replies: LOCATION_PROMPT
     }
 
