@@ -31,7 +31,7 @@ Rubotnik.route :message do
 
   bind 'how', 'do', 'you', all: true, to: :start_conversation, reply_with: {
      text: "I'm doing fine! You?",
-     quick_replies: [['Good!', 'OK'], ['Not so well', 'NOT_OK']]
+     quick_replies: [['Bien!', 'OK'], ['Pas terrible', 'NOT_OK']]
      # second item in nested array will be the contents of message.quick_reply,
      # once the user makes a selection. Quick reply text in ALL CAPS will be
      # used as default values of payloads if you pass strings instead of arrays
