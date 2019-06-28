@@ -52,3 +52,4 @@ module Commands
     message.typing_off
     stop_thread
   end
+end
