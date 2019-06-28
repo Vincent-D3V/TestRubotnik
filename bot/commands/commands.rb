@@ -32,9 +32,9 @@ module Commands
     when 'non' then say "Et bah te faire foutre !! "
     else
       say "It shall pass"
+      stop_thread
     end
     message.typing_off
-    stop_thread # future messages from user will be handled from top-level bindings
   end
 
   def appareils
@@ -48,6 +48,7 @@ module Commands
       next_command :appear_nice
     else
       say "it shall bla bla "
+      stop_thread
     end
     message.typing_off
     stop_thread
