@@ -20,7 +20,7 @@ LOCATION_PROMPT = UI::QuickReplies.location
 Rubotnik.route :message do
   # Will work for all variations of these three greetings
   bind 'hi', 'hello', 'bonjour' do
-    say 'Bonjour je suis le sun bot ! Veux tu en savoir plus sur les bonnes pratiques de consommation énergétiques ? '
+    say 'Bonjour je suis le Sunbot ! Veux-tu en savoir plus sur les bonnes pratiques de consommation énergétique ? '
   end
 
   # Start a thread (and provide an opening message with optional quick replies).

@@ -10,19 +10,19 @@ module Commands
     message.typing_on
     case message.quick_reply
     when 'TV'
-      say "Bien sur on ne va te demander de ne pas regarder la télévision seulement à midi mais la mettre seulement en veille te permettrait d'éviter une dépense énergétique inutile,
+      say "Bien sûr on ne va te demander de ne regarder la télévision qu'à midi, mais seulement éviter de la laisser en veille lorsque tu ne l'utilises pas te permettrait d'éviter une dépense énergétique inutile!
       Possèdes-tu d'autres appareils ? "
       stop_thread
     when 'LAVE_LINGE'
-      say "Savais-tu que la plupart des lave-linges possèdent un mode éco qui te permet de moins consommer. Remplis correctement tes machines et nettoie régulièrement le filtre,
+      say "Savais-tu que la plupart des lave-linges possèdent un mode éco qui te permet de moins consommer ? Pense à remplir correctement tes machines et à nettoyer régulièrement le filtre !
       Possèdes-tu d'autres appareils ? "
       stop_thread
     when 'LAVE_VAISSELLE'
-      say "Essaie de brancher sur l'arrivée d'eau froide. Charge totalement tes machines. Fais au maximum de vaisselles à la main,
+      say "Essaie de le brancher sur l'arrivée d'eau chaude, charge-le completement avant de la lancer !
       Possèdes-tu d'autres appareils ? "
       stop_thread
     when 'FRIGO'
-      say "Place ton frigidaire loin des sources de chauleurs. Dépoussière régulièrement les grilles arrières. Laisse aussi de l'espace entre le mur et l'arrière de ton frigidaire,
+      say "Place ton frigo loin des sources de chauleurs (comme un four), dépoussière régulièrement les grilles arrières et pense aussi à laisser de l'espace entre le mur et l'arrière de ton réfrigérateur!
       Possèdes-tu d'autres appareils ? "
       stop_thread
     else
