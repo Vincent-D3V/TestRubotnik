@@ -46,5 +46,7 @@ module Commands
       next_command :appear_nice
     when 'lave-linge' then say 'Pour ton lave-linge, si tu as des panneaux il faut mieux la programmer le midi quand le soleil est à son pic !'
       next_command :appear_nice
+    else
+      say "it shall bla bla "
     end
 end 
