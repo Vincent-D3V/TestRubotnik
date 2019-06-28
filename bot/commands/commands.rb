@@ -49,4 +49,6 @@ module Commands
     else
       say "it shall bla bla "
     end
+    message.typing_off
+    stop_thread
 end 
