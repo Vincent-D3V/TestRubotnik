@@ -1,5 +1,5 @@
 module Commands
-  API_URL = 'https://api.openweathermap.org/data/2.5/weather?lat'.freeze.'§andappid=526286c33895674959f3b36eb9b60f9b'
+  API_URL = 'https://api.openweathermap.org/data/2.5/weather?andappid=526286c33895674959f3b36eb9b60f9b§lat='.freeze
 
   # Lookup based on location data from user's device
   def lookup_location
