@@ -10,17 +10,21 @@ module Commands
     message.typing_on
     case message.quick_reply
     when 'TV'
-      say "Bien sur on ne va te demander de ne pas regarder la télévision seulement à midi mais la mettre seulement en veille te permettrait d'éviter une dépense énergétique inutile"
-      quick_replies: [['TV', 'TV'], ['Lave-linge', 'LAVE_LINGE'], ['Lave-vaisselle', 'LAVE_VAISSELLE'], ['Frigo', 'FRIGO']]
+      say "Bien sur on ne va te demander de ne pas regarder la télévision seulement à midi mais la mettre seulement en veille te permettrait d'éviter une dépense énergétique inutile,
+      Possèdes-tu d'autres appareils ? "
+      next_command :appareils
     when 'LAVE_LINGE'
-      say "Savais-tu que la plupart des lave-linges possèdent un mode éco qui te permet de moins consommer. Remplis correctement tes machines et nettoie régulièrement le filtre"
-      quick_replies: [['TV', 'TV'], ['Lave-linge', 'LAVE_LINGE'], ['Lave-vaisselle', 'LAVE_VAISSELLE'], ['Frigo', 'FRIGO']]
+      say "Savais-tu que la plupart des lave-linges possèdent un mode éco qui te permet de moins consommer. Remplis correctement tes machines et nettoie régulièrement le filtre,
+      Possèdes-tu d'autres appareils ? "
+      next_command :appareils
     when 'LAVE_VAISSELLE'
-      say "Essaie de brancher sur l'arrivée d'eau froide. Charge totalement tes machines. Fais au maximum de vaisselles à la main."
-      quick_replies: [['TV', 'TV'], ['Lave-linge', 'LAVE_LINGE'], ['Lave-vaisselle', 'LAVE_VAISSELLE'], ['Frigo', 'FRIGO']]
+      say "Essaie de brancher sur l'arrivée d'eau froide. Charge totalement tes machines. Fais au maximum de vaisselles à la main,
+      Possèdes-tu d'autres appareils ? "
+      next_command :appareils
     when 'FRIGO'
-      say "Place ton frigidaire loin des sources de chauleurs. Dépoussière régulièrement les grilles arrières. Laisse aussi de l'espace entre le mur et l'arrière de ton frigidaire"
-      quick_replies: [['TV', 'TV'], ['Lave-linge', 'LAVE_LINGE'], ['Lave-vaisselle', 'LAVE_VAISSELLE'], ['Frigo', 'FRIGO']]
+      say "Place ton frigidaire loin des sources de chauleurs. Dépoussière régulièrement les grilles arrières. Laisse aussi de l'espace entre le mur et l'arrière de ton frigidaire,
+      Possèdes-tu d'autres appareils ? "
+      next_command :appareils
     else
       say "🤖"
       # it's always a good idea to have an else, quick replies don't
@@ -46,12 +50,11 @@ module Commands
   def appareils
     message.typing_on
     case message.text
-    when 'four' then say 'Okay, pour le four tu dois bla bla bla'
-      next_command :appear_nice
-    when 'machine à laver' then say 'Pour ta machine, si tu as des panneaux il faut mieux la programmer le midi quand le soleil est à son pic !'
-      next_command :appear_nice
-    when 'lave-linge' then say 'Pour ton lave-linge, si tu as des panneaux il faut mieux la programmer le midi quand le soleil est à son pic !'
-      next_command :appear_nice
+    when 'oui' then bind 'Oui', to: :start_conversation, reply_with: {
+      text: "Possédez-vous un des appareils suivants ?",
+      quick_replies: [['TV', 'TV'], ['Lave-linge', 'LAVE_LINGE'], ['Lave-vaisselle', 'LAVE_VAISSELLE'], ['Frigo', 'FRIGO']]
+    }
+    when 'non' then say 'Okay merci !'
     else
       say "it shall bla bla "
       stop_thread
