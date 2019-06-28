@@ -29,7 +29,7 @@ Rubotnik.route :message do
   # commands/commands.rb already has this start_conversation method
   # defined as an example.
 
-  bind 'Oui', 'j en ', 'ai', all: true, to: :start_conversation, reply_with: {
+  bind 'Oui' all: true, to: :start_conversation, reply_with: {
      text: "Connais-tu Sunshare",
      quick_replies: [['Oui', 'OK'], ['Non', 'NOT_OK']]
      # second item in nested array will be the contents of message.quick_reply,
